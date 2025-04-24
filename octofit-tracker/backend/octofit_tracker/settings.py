@@ -134,4 +134,4 @@ CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_METHODS = ['*']
 
 # Sufijo para los endpoints de la API REST en Codespace
-API_URL_SUFFIX = "/api/"
+CODESPACE_API_SUFFIX = "/api/"
