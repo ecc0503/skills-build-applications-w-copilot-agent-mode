@@ -1,12 +1,11 @@
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
-from .models import User, Team, Activity, Leaderboard, Workout
+from .serializers import AppUserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
+from .models import AppUser, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    # URLs para el codespace y localhost
     codespace_url = 'https://psychic-happiness-q77gp49x5g6jc4x6j-8000.app.github.dev/'
     localhost_url = 'http://localhost:8000/'
     return Response({
@@ -17,9 +16,9 @@ def api_root(request, format=None):
         'workouts': [codespace_url + 'api/workouts/?format=api', localhost_url + 'api/workouts/?format=api']
     })
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class AppUserViewSet(viewsets.ModelViewSet):
+    queryset = AppUser.objects.all()
+    serializer_class = AppUserSerializer
 
 class TeamViewSet(viewsets.ModelViewSet):
     queryset = Team.objects.all()
